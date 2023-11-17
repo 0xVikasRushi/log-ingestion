@@ -1,25 +1,12 @@
 import { Router, Request, Response } from "express";
+import { saveLogs, getLogs } from "../controller/logs.controller";
 const router = Router();
 
-function debug(req: Request, res: Response) {
-  switch (req.method) {
-    case "GET":
-      console.log(req.query);
-      res.send(req.params);
-      break;
-    case "POST":
-      res.send(req.body);
-      break;
-    default:
-      res.send();
-      break;
-  }
-}
 /* ---------------------------------- POST ---------------------------------- */
-router.post("/login", debug);
+router.post("/logs", saveLogs);
 
 /* ---------------------------------- GET ----------------------------------- */
-router.get("/login", debug);
+router.get("/logs", getLogs);
 
 const apiRoutes = router;
 export default apiRoutes;
