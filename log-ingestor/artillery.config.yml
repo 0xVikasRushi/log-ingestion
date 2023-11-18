@@ -1,0 +1,31 @@
+config:
+  target: "http://localhost:3000/api"
+  phases:
+    - duration: 60
+      arrivalRate: 20
+      name: "Warming up"
+    - duration: 240
+      arrivalRate: 20
+      rampTo: 100
+      name: "Ramping up"
+    - duration: 500
+      arrivalRate: 100
+      name: "Sustained load"
+  processor: "./processor.js"
+
+scenarios:
+  - name: "Sign up flow"
+    flow:
+      - post:
+          url: "/logs"
+          beforeRequest: generateRandomLog
+          json:
+            level: "{{ level }}"
+            message: "{{ message }}"
+            resourceId: "{{ resourceId }}"
+            timestamp: "{{ timestamp }}"
+            traceId: "{{ traceId }}"
+            spanId: "{{ spanId }}"
+            commit: "{{ commit }}"
+            metadata: "{{ metadata }}"
+      - think: 3

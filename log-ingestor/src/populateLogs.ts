@@ -10,7 +10,7 @@ const generateRandomLog = () => {
     logLevels[Math.floor(Math.random() * logLevels.length)];
 
   const log = {
-    level: randomLogLevel,
+    level: "concurrent",
     message: `Log message ${Math.random()}`,
     resourceId: generateRandomId(),
     timestamp: new Date().toISOString(),
@@ -44,5 +44,5 @@ const sendData = async (logCount: number) => {
   }
 };
 
-const numberOfLogs = 10;
+const numberOfLogs = 10000;
 sendData(numberOfLogs);
