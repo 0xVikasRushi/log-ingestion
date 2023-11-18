@@ -21,12 +21,13 @@ const saveLogs = async (req: Request, res: Response) => {
   }
 };
 
+// ? full search replace q with query
+
 const getLogs = async (req: Request, res: Response) => {
   try {
     const result = await elasticClientInstance.search({
       index: "logs",
     });
-
     res.json(result.hits.hits.map((hit) => hit._source));
   } catch (error) {
     console.error("Error fetching logs:", error.message);
@@ -34,4 +35,18 @@ const getLogs = async (req: Request, res: Response) => {
   }
 };
 
-export { saveLogs, getLogs };
+const getfullSearch = async (req: Request, res: Response) => {
+  try {
+    const { query } = req.params;
+
+    const result = await elasticClientInstance.search({
+      index: "logs",
+      q: query,
+    });
+    res.send(result.hits.hits.map((hit) => hit._source));
+  } catch (error) {
+    res.status(500).json({ error: "Failed to get full search" });
+  }
+};
+
+export { saveLogs, getLogs, getfullSearch };
