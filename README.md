@@ -1,4 +1,5 @@
 ## Table of Contents
+- [Features Implemented](#feature-implemented)
 - [Log Ingestion](#log-ingestion)
     - [Tech Stack and Why Elastic Search](#tech-stack-and-why-elastic-search)
     - [Installation](#installation-log-ingestion)
@@ -9,7 +10,30 @@
   - [Installation](#install-query-intenface)
   - [Demo Video](#demo-video)
 
+## Features Implemented
 
+- [x] Log Ingestion
+  - [x] Develop a mechanism to ingest logs in the provided format.
+  - [x] Elasticsearch chosen for scalability and efficient full-text search capabilities\
+  - [x] Ensure scalability to handle high volumes of logs efficiently
+  - [x] Custom Load Testing and Data Population for accurate results
+      
+- [x] Query Interface
+  - [x] Offer a user interface (Web UI or CLI) for full-text search across logs.
+  - [x] Include filters based on:
+      - [x] level
+      - [x] message
+      - [x] resourceId
+      - [x] timestamp
+      - [x] spanID
+      - [x] commit
+      - [x] meta.parentResourceId    
+- [ ] Advance Bonus
+    - [x] Provide real-time log ingestion and searching capabilities.
+    - [ ] Implement search within specific date ranges.
+    - [ ] Utilize regular expressions for search.
+    - [ ] Allow combining multiple filters.
+    - [ ] Implement role-based access to the query interface.
 ## Log Ingestion
 
 ### Tech Stack and Why Elastic Search  
@@ -93,7 +117,6 @@ To set up the Query Interface locally, follow these steps:
 
 ### Demo Video
 https://github.com/dyte-submissions/november-2023-hiring-0xVikasRushi/assets/88543171/3f3399db-4039-418d-b9b2-0c86d9c557e9
-
 
 
 
