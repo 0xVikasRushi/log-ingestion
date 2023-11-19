@@ -10,7 +10,7 @@ const generateRandomLog = () => {
     logLevels[Math.floor(Math.random() * logLevels.length)];
 
   const log = {
-    level: "concurrent",
+    level: randomLogLevel,
     message: `Log message ${Math.random()}`,
     resourceId: generateRandomId(),
     timestamp: new Date().toISOString(),

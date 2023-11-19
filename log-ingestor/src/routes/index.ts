@@ -52,7 +52,7 @@ export default apiRoutes;
 
 // ? REFERENCE
 
-// *  http://localhost:3000/api/logs/parentresource/0oyrljc0ee7i
+// *  http://localhost:3000/api/logs/unisearch/metadata/0oyrljc0ee7i
 // *  http://localhost:3000/api/logs/unisearch?timestamp=2023-11-18T06:47:59.947Z
 // *  http://localhost:3000/api/logs/unisearch?spanId=0oyrljc0ee7i
 // *  http://localhost:3000/api/logs/unisearch?traceId=j0ko9ncilxf
