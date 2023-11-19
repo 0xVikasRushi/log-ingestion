@@ -7,6 +7,8 @@
 - [Query Interface](#query-interface)
   - [Tech Stack](#tech-stack)
   - [Installation](#install-query-intenface)
+  - [Demo Video](#demo-video)
+
 
 ## Log Ingestion
 
@@ -89,8 +91,7 @@ To set up the Query Interface locally, follow these steps:
     npm run dev
     ```
 
-   
-
+### Demo Video
 https://github.com/dyte-submissions/november-2023-hiring-0xVikasRushi/assets/88543171/3f3399db-4039-418d-b9b2-0c86d9c557e9
 
 
