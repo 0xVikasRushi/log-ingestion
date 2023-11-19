@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { handlePlaceHolderforFilter, options } from "./constant";
 
 const Home = () => {
   const [searchKey, setSearchKey] = useState("");
@@ -12,15 +13,7 @@ const Home = () => {
   const [filterId, setFilterId] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const options = [
-    "message",
-    "resourceId",
-    "timestamp",
-    "traceId",
-    "spanId",
-    "commit",
-  ];
+  const [requestTime, setRequestTime] = useState(0);
 
   const [selectedOption, setSelectedOption] = useState("");
   const [filterPlaceholder, setFilterPlaceholder] = useState("");
@@ -31,31 +24,13 @@ const Home = () => {
     setSelectedOption(e.target.value);
   };
 
-  const handlePlaceHolderforFilter = (option: string) => {
-    switch (option) {
-      case "resourceId":
-        return "Enter resourceId";
-      case "timestamp":
-        return "Enter timestamp";
-      case "traceId":
-        return "Enter traceId";
-      case "spanId":
-        return "Enter spanId";
-      case "commit":
-        return "Enter commit";
-      case "metadata":
-        return "Enter metadata parentId";
-      case "message":
-        return "Enter message";
-      default:
-        return "Enter value";
-    }
-  };
-
   const handleAllLogs = async () => {
     try {
       setLoading(true);
+      const startTime = performance.now();
       const response = await axios.get(`http://localhost:3000/api/logs`);
+      const endTime = performance.now();
+      setRequestTime(endTime - startTime);
       setResults(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -71,9 +46,12 @@ const Home = () => {
       if (sizeKey === "") {
         setSizeKey("10");
       }
+      const startTime = performance.now();
       const response = await axios.get(
         `http://localhost:3000/api/logs/level/${searchKey}/${sizeKey}`
       );
+      const endTime = performance.now();
+      setRequestTime(endTime - startTime);
       setResults(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -86,9 +64,12 @@ const Home = () => {
   const handleFullSearch = async () => {
     try {
       setLoading(true);
+      const startTime = performance.now();
       const response = await axios.get(
         `http://localhost:3000/api/logs/search/${fullSearchKey}`
       );
+      const endTime = performance.now();
+      setRequestTime(endTime - startTime);
       setResults(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -124,7 +105,10 @@ const Home = () => {
     alert(url);
     try {
       setLoading(true);
+      const startTime = performance.now();
       const response = await axios.get(url);
+      const endTime = performance.now();
+      setRequestTime(endTime - startTime);
       setResults(response.data);
     } catch (error) {}
   };
@@ -232,11 +216,16 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="w-1/2 p-4 m-10 mb-4 border-dashed border-2 border-sky-500 ">
+      <div className="w-1/2 p-4 m-10 mb-4 border-dashed border-2 border-sky-500">
         {results ? (
-          <SyntaxHighlighter language="json" theme={dark}>
-            {JSON.stringify(results, null, 2)}
-          </SyntaxHighlighter>
+          <>
+            <p className="text-green-500">
+              Request Time: {requestTime} milliseconds
+            </p>
+            <SyntaxHighlighter language="json" theme={dark}>
+              {JSON.stringify(results, null, 2)}
+            </SyntaxHighlighter>
+          </>
         ) : (
           <p className="text-gray-500">{error || "No results to display"}</p>
         )}
