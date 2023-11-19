@@ -1,27 +1,25 @@
 export const options = [
-  "message",
-  "resourceId",
-  "timestamp",
-  "traceId",
-  "spanId",
-  "commit",
+  "Message",
+  "ResourceId",
+  "Timestamp",
+  "TraceId",
+  "SpanId",
+  "Commit",
 ];
 
 export const handlePlaceHolderforFilter = (option: string) => {
   switch (option) {
-    case "resourceId":
+    case "ResourceId":
       return "Enter resourceId";
-    case "timestamp":
-      return "Enter timestamp";
-    case "traceId":
-      return "Enter traceId";
-    case "spanId":
-      return "Enter spanId";
-    case "commit":
-      return "Enter commit";
-    case "metadata":
-      return "Enter metadata parentId";
-    case "message":
+    case "Timestamp":
+      return "Enter Timestamp";
+    case "TraceId":
+      return "Enter TraceId";
+    case "SpanId":
+      return "Enter SpanId";
+    case "Commit":
+      return "Enter Commit";
+    case "Message":
       return "Enter message";
     default:
       return "Enter value";
