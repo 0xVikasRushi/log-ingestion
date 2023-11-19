@@ -14,7 +14,7 @@ config:
   processor: "./processor.js"
 
 scenarios:
-  - name: "Sign up flow"
+  - name: "POST /logs"
     flow:
       - post:
           url: "/logs"

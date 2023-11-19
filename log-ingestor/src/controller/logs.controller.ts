@@ -79,8 +79,12 @@ const getLevelSearch = async (req: Request, res: Response) => {
       index: "logs",
       body: {
         query: {
-          term: {
-            level: levelid,
+          bool: {
+            filter: {
+              term: {
+                level: levelid,
+              },
+            },
           },
         },
       },

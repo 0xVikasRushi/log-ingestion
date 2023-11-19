@@ -1,0 +1,35 @@
+config:
+  target: "http://localhost:3000" # Adjust the target URL based on your API server address
+  phases:
+    - duration: 60
+      arrivalRate: 5
+
+scenarios:
+  # - flow:
+  #     - get:
+  #         url: '/api/logs'
+  #       - think: 1
+  #     - get:
+  #         url: '/api/logs/search/vikas'
+
+  - flow:
+      - get:
+          url: "/api/logs/level/error/10"
+
+  # - flow:
+  #     - get:
+  #         url: '/api/logs/message/Log'
+  #       - think:
+  #  - flow:
+  #     - get:
+  #         url: '/api/logs/message/Log'
+  #       - think:
+
+  # - flow:
+  #     - get:
+  #         url: '/api/logs/unisearch?resourceId=269v9ngomqx'
+
+  # - flow:
+  #     - get:
+  #         url: '/api/logs/unisearch/metadata/eyqh32glldf'
+  #       - think: 4  # Simulate a 4-second delay before the next request
