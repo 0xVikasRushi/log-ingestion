@@ -66,6 +66,34 @@ npm run test
 
 <img alt="load-test" src="https://github.com/dyte-submissions/november-2023-hiring-0xVikasRushi/assets/88543171/5ad138dc-f547-436f-93f6-7b47de714a75" width="600">
 
+## Query Interface
+
+### Tech Stack with Next.js
+
+The Query Interface is implemented using Next.js, Typescript and TailwindCSS
+
+### Installation
+
+To set up the Query Interface locally, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/dyte-submissions/november-2023-hiring-0xVikasRushi
+   cd query-interface
+    ```
+2. Install and run the server
+
+   ```bash
+    npm install 
+    npm run dev
+    ```
+
+   
+
+https://github.com/dyte-submissions/november-2023-hiring-0xVikasRushi/assets/88543171/3f3399db-4039-418d-b9b2-0c86d9c557e9
+
+
 
 
 
