@@ -7,7 +7,8 @@
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "build": "tsc --build",
     "start": "tsc && node dist/index.js",
-    "populate": "tsc && node dist/populateLogs.js"
+    "populate": "tsc && node dist/populateLogs.js",
+    "test": "artillery run --output report-get.json test.config.yml"
   },
   "keywords": [],
   "author": "0xVikasRushi",

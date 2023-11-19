@@ -102,7 +102,6 @@ const Home = () => {
         url = `http://localhost:3000/api/logs/unisearch?spanId=${filterId}`;
         break;
     }
-    alert(url);
     try {
       setLoading(true);
       const startTime = performance.now();
