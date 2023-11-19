@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { handlePlaceHolderforFilter, options } from "./constant";
+import { BASE_URL_API, handlePlaceHolderforFilter, options } from "./constant";
 
 const Home = () => {
   const [searchKey, setSearchKey] = useState("");
@@ -24,22 +24,6 @@ const Home = () => {
     setSelectedOption(e.target.value);
   };
 
-  // const handleAllLogs = async () => {
-  //   try {
-  //     setLoading(true);
-  //     const startTime = performance.now();
-  //     const response = await axios.get(`http://localhost:3000/api/logs`);
-  //     const endTime = performance.now();
-  //     setRequestTime(endTime - startTime);
-  //     setResults(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //     setError("Error fetching data");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
   const handleLevel = async () => {
     try {
       setLoading(true);
@@ -48,7 +32,7 @@ const Home = () => {
       }
       const startTime = performance.now();
       const response = await axios.get(
-        `http://localhost:3000/api/logs/level/${searchKey}/${sizeKey}`
+        `${BASE_URL_API}/level/${searchKey}/${sizeKey}`
       );
       const endTime = performance.now();
       setRequestTime(endTime - startTime);
@@ -66,7 +50,7 @@ const Home = () => {
       setLoading(true);
       const startTime = performance.now();
       const response = await axios.get(
-        `http://localhost:3000/api/logs/search/${fullSearchKey}`
+        `${BASE_URL_API}/search/${fullSearchKey}`
       );
       const endTime = performance.now();
       setRequestTime(endTime - startTime);
@@ -84,22 +68,22 @@ const Home = () => {
 
     switch (selectedOption) {
       case "resourceId":
-        url = `http://localhost:3000/api/logs/unisearch/metadata/${filterId}`;
+        url = `${BASE_URL_API}/unisearch/metadata/${filterId}`;
         break;
       case "Message":
-        url = `http://localhost:3000/api/logs/message/${filterId}`;
+        url = `${BASE_URL_API}/message/${filterId}`;
         break;
       case "Timestamp":
-        url = `http://localhost:3000/api/logs/unisearch?timestamp=${filterId}`;
+        url = `${BASE_URL_API}/unisearch?timestamp=${filterId}`;
         break;
       case "TraceId":
-        url = `http://localhost:3000/api/logs/unisearch?traceId=${filterId}`;
+        url = `${BASE_URL_API}/unisearch?traceId=${filterId}`;
         break;
       case "Commit":
-        url = `http://localhost:3000/api/logs/unisearch?commit=${filterId}`;
+        url = `${BASE_URL_API}/unisearch?commit=${filterId}`;
         break;
       case "SpanId":
-        url = `http://localhost:3000/api/logs/unisearch?spanId=${filterId}`;
+        url = `${BASE_URL_API}/unisearch?spanId=${filterId}`;
         break;
     }
     try {
@@ -207,14 +191,6 @@ const Home = () => {
             </button>
           </div>
         </div>
-        {/* <div>
-          <button
-            onClick={handleAllLogs}
-            className="w-3/4 mt-2 px-4 py-2 bg-blue-500 text-white rounded-md"
-          >
-            {loading ? "Loading..." : "View All logs"}
-          </button>
-        </div> */}
       </div>
 
       <div className="w-1/2 p-4 m-10 mb-4 border-dashed border-2 border-sky-500">
