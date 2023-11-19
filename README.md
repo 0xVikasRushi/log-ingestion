@@ -42,7 +42,12 @@ As mentioned Express Framework can handle 15k/req per second in benchmarks and I
 
 In the `artillery.config.yml` file, you can find the configuration for the third phase of load testing. The response details are available in the `report-express.json` file.
 
-I used Artillery to execute multiple concurrent requests in three phases to populate the logs. In total, I added over 1.5 lakh logs in Elasticsearch
+I used Artillery to execute multiple concurrent requests in three phases to populate the logs. In total, I added over 1.64 lakh logs in Elasticsearch
+
+<img alt="elastic-search" src="https://github.com/dyte-submissions/november-2023-hiring-0xVikasRushi/assets/88543171/122eda63-1313-49b3-83ef-379b259f8723" width="600">
+
+
+
 
 ## Load Testing Results
 
@@ -52,10 +57,18 @@ Let's examine the population results:
 | ------------------ | -------------- | -------------------------- |
 | `request-rate`    | `100 req/sec`  | 261 milliseconds           |
 
+
 To Run Load balancing Test 
 ```
 npm run test
 ```
+
+
+<img alt="load-test" src="https://github.com/dyte-submissions/november-2023-hiring-0xVikasRushi/assets/88543171/5ad138dc-f547-436f-93f6-7b47de714a75" width="600">
+
+
+
+
 
 
 
