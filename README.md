@@ -82,7 +82,7 @@ Let's examine the population results:
 | Request         | Rate           | http.response.time Mean   |
 | ------------------ | -------------- | -------------------------- |
 | `request-rate`    | `100 req/sec`  | 261 milliseconds           |
-
+| `request-rate`    | `200 req/sec`  | 284 milliseconds           |
 
 To Run Load balancing Test 
 ```
