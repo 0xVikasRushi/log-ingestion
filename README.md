@@ -32,7 +32,7 @@
 
 Sample Log Data Format:
 
-```
+```bash
 {
 	"level": "error",
 	"message": "Failed to connect to DB",
@@ -42,8 +42,8 @@ Sample Log Data Format:
     "spanId": "span-456",
     "commit": "5e5342f",
     "metadata": {
-        "parentResourceId": "server-0987"
-    }
+    "parentResourceId": "server-0987"
+ }
 }
 ```
 
